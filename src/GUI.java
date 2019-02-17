@@ -25,24 +25,20 @@ public class GUI extends Application{
         berechnen.setOnAction(new EventHandler<ActionEvent>(){
            @Override
            public void handle(ActionEvent event){
-               //TODO
-               //Methode aufrufen ihr die werte der Textfielder zuweisen
-               //und das ergebnis dem ergebnis zuweisen
-               //Ich füg dann noch paar verschönerungssachen ein
                try {
                    ergebnis.setText(logic.SterberisikoMethode(
                            Integer.parseInt(eingabeHoehe.getText()),
                            Float.valueOf(eingabeDruckStaerke.getText()),
                            Integer.parseInt(eingabealter.getText())));
-               }catch (NullPointerException e){
+               }catch (NumberFormatException e){
                    System.out.println(e);
-                   ergebnis.setText("bitte Werte eingeben");
+                   ergebnis.setText("Bitte geben Sie die Werte im richtigen Format ein (Hoehe als Ganzzahl, Alter als Ganzzahl, HGS als Zahl)");
                }
            }
         }
         );
 
-        Label kommentarHoehe = new Label("Hoehe (zw. 150cm und 184cm):");
+        Label kommentarHoehe = new Label("Groeße (zw. 150cm und 184cm):");
         Label kommentarDruckStaerke = new Label("DruckStaerke (zw. 27.8 und 35.0):");
         Label kommentarAlter = new Label("Alter (zw. 17 und 24):");
 
