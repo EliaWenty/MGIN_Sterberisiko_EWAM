@@ -37,62 +37,15 @@ public class Logik {
         riskHGS2024.add(28.0f); //170-174cm
         riskHGS2024.add(29.0f); //175-179cm
         riskHGS2024.add(29.6f); //180-184cm
+        List<Integer> indexes = new ArrayList<>();
 
         if(alter >= 17 && alter <= 19){
             System.out.println("alter zwischen 17 und 19");
-            if(hoehe>=150 && hoehe<=154){
-                return evaluate(hgs,0,meanHGS1719,riskHGS1719);
-            }
-            else if(hoehe>=155 && hoehe<=159){
-                return evaluate(hgs,1,meanHGS1719,riskHGS1719);
-            }
-            else if(hoehe>=160 && hoehe<=164){
-                return evaluate(hgs,2,meanHGS1719,riskHGS1719);
-            }
-            else if(hoehe>=165 && hoehe<=169){
-                return evaluate(hgs,3,meanHGS1719,riskHGS1719);
-            }
-            else if(hoehe>=170 && hoehe<=174){
-                return evaluate(hgs,4,meanHGS1719,riskHGS1719);
-            }
-            else if(hoehe>=175 && hoehe<=179){
-                return evaluate(hgs,5,meanHGS1719,riskHGS1719);
-            }
-            else if(hoehe>=180 && hoehe<=184){
-                return evaluate(hgs,6,meanHGS1719,riskHGS1719);
-            }
-            else{
-                System.out.println("Eingegebene Größe liegt ausserhalb des implementierten Wertebereichs!");
-                return null;
-            }
+            return checkHeights(hoehe,hgs,indexes,meanHGS1719,riskHGS1719);
         }
         else if (alter >= 20 && alter <= 24){
             System.out.println("alter zwischen 20 und 24");
-            if(hoehe>=150 && hoehe<=154){
-                return evaluate(hgs,0,meanHGS2024,riskHGS2024);
-            }
-            else if(hoehe>=155 && hoehe<=159){
-                return evaluate(hgs,1,meanHGS2024,riskHGS2024);
-            }
-            else if(hoehe>=160 && hoehe<=164){
-                return evaluate(hgs,2,meanHGS2024,riskHGS2024);
-            }
-            else if(hoehe>=165 && hoehe<=169){
-                return evaluate(hgs,3,meanHGS2024,riskHGS2024);
-            }
-            else if(hoehe>=170 && hoehe<=174){
-                return evaluate(hgs,4,meanHGS2024,riskHGS2024);
-            }
-            else if(hoehe>=175 && hoehe<=179){
-                return evaluate(hgs,5,meanHGS2024,riskHGS2024);
-            }
-            else if(hoehe>=180 && hoehe<=184){
-                return evaluate(hgs,6,meanHGS2024,riskHGS2024);
-            }
-            else{
-                System.out.println("Eingegebene Größe liegt ausserhalb des implementierten Wertebereichs!");
-                return null;
-            }
+            return checkHeights(hoehe,hgs,indexes,meanHGS2024,riskHGS2024);
         }
         else{
             System.out.println("Eingegebenes Alter liegt ausserhalb des implementierten Bereichs");
@@ -113,6 +66,33 @@ public class Logik {
         }
         else{
             return "Die Stärke Ihres Händedrucks liegt im kritischen Bereich";
+        }
+    }
+    public String checkHeights(Integer hoehe, Float hgs, List<Integer> indexes, List<Float> mean, List<Float> risk){
+        if(hoehe>=150 && hoehe<=154){
+            return evaluate(hgs,indexes.get(0),mean,risk);
+        }
+        else if(hoehe>=155 && hoehe<=159){
+            return evaluate(hgs,indexes.get(1),mean,risk);
+        }
+        else if(hoehe>=160 && hoehe<=164){
+            return evaluate(hgs,indexes.get(2),mean,risk);
+        }
+        else if(hoehe>=165 && hoehe<=169){
+            return evaluate(hgs,indexes.get(3),mean,risk);
+        }
+        else if(hoehe>=170 && hoehe<=174){
+            return evaluate(hgs,indexes.get(4),mean,risk);
+        }
+        else if(hoehe>=175 && hoehe<=179){
+            return evaluate(hgs,indexes.get(5),mean,risk);
+        }
+        else if(hoehe>=180 && hoehe<=184){
+            return evaluate(hgs,indexes.get(6),mean,risk);
+        }
+        else{
+            System.out.println("Eingegebene Größe liegt ausserhalb des implementierten Wertebereichs!");
+            return null;
         }
     }
 }

@@ -26,7 +26,7 @@ public class GUI extends Application{
            public void handle(ActionEvent event){
                //TODO
                //Methode aufrufen ihr die werte der Textfielder zuweisen
-               //und das ergebniss dem ergebniss zuweisen
+               //und das ergebnis dem ergebnis zuweisen
                //Ich füg dann noch paar verschönerungssachen ein
 
            }
