@@ -14,7 +14,7 @@ public class GUI extends Application{
     TextField eingabeHoehe = new TextField();
     TextField eingabeDruckStaerke = new TextField();
     TextField eingabealter = new TextField();
-    Label ergebniss = new Label();
+    Label ergebnis = new Label();
     Logik logic = new Logik();
 
     @Override
@@ -37,7 +37,7 @@ public class GUI extends Application{
         window.add(eingabeDruckStaerke, 0,1);
         window.add(eingabealter, 0,2);
         window.add(berechnen, 0,3);
-        window.add(ergebniss, 0,4);
+        window.add(ergebnis, 0,4);
 
 
         primaryStage.setTitle("Sterberisiko");
